@@ -15,6 +15,7 @@ def new(request):
 	return render(request,'first/new.html')
 
 def add(request):
+	errors = Users.objects.basic_validator(request.POST)
 	x = request.POST['firstname_form']
 	y = request.POST['lastname_form']
 	z = request.POST['email_form']
@@ -34,6 +35,7 @@ def edit(request, idx):
 	return render(request,'first/edit.html', user_edit)
 
 def update(request,idx):
+	errors = Users.objects.basic_validator(request.POST)
 	x = request.POST['firstname_form']
 	y = request.POST['lastname_form']
 	z = request.POST['email_form']
